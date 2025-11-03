@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Adega do Hambúrguer | O Artesanal Levado a Sério</title>
+    <meta name="description" content="Hambúrguer artesanal e vinhos. Paixão em cada detalhe e uma experiência única de harmonização. Adega do Hambúrguer — Fascínio por hambúrgueres e vinhos.">
+    <meta name="keywords" content="hamburgueria artesanal, adega de vinhos, hamburguer e vinho, delivery, goomer, adega do hamburguer curitiba">
+    <meta name="theme-color" content="#c41e3a"/>
+
+    <meta property="og:title" content="Adega do Hambúrguer | Fascínio por Hambúrgueres e Vinhos">
+    <meta property="og:description" content="Hambúrguer artesanal com ingredientes selecionados e paixão em cada detalhe.">
+    <meta property="og:image" content="assets/images/hamburguer-artesanal.jpg"> 
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1046/1046784.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <style>
+        /* INÍCIO DO CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #c41e3a;
+            --accent: #d4af37;
+            --wood: #5a3818;
+            --dark: #0f0f0f;
+            --dark-secondary: #1a1a1a;
+            --text: #f5f5f5;
+            --text-muted: #cccccc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--dark);
+            background-image: radial-gradient(circle at 10% 90%, rgba(90, 56, 24, 0.15) 0%, transparent 50%),
+                            radial-gradient(circle at 90% 10%, rgba(90, 56, 24, 0.1) 0%, transparent 50%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.98);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 3px solid var(--wood);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+            overflow: hidden;
+            background: url('assets/images/hamburguer-bg.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85));
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            margin-bottom: 0.2rem;
+            line-height: 1.1;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero .slogan {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            color: var(--accent);
+            font-style: italic;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin: 0 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #a0172e;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(196, 30, 58, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        /* Seções de Conteúdo */
+        .section {
+            padding: 120px 0;
+            opacity: 0; /* Começa invisível */
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+            border-bottom: 2px solid var(--wood);
+        }
+
+        .dark-section {
+            background: var(--dark-secondary);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            text-align: center;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--wood);
+            border-radius: 2px;
+        }
+
+        .lead-text {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 1.5rem auto 2rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        p {
+            max-width: 700px;
+            margin: 1.5rem auto;
+            line-height: 1.7;
+            text-align: center;
+        }
+        .small-note {
+            font-size: 1rem;
+            color: var(--wood);
+            font-weight: 600;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .content-grid.reverse-grid {
+            direction: rtl;
+        }
+        .content-grid.reverse-grid > * {
+            direction: ltr;
+        }
+
+        .text-block {
+            padding: 20px;
+            text-align: left;
+        }
+        .text-block h2, .text-block .lead-text, .text-block p {
+            text-align: left;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .image-block img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--wood);
+            transition: transform 0.4s;
+        }
+        .image-block img:hover {
+            transform: scale(1.02);
+        }
+
+        .cta-final {
+            background: linear-gradient(135deg, #1a0d05, #0f0f0f);
+            text-align: center;
+            padding: 120px 0;
+            border-top: 4px solid var(--primary);
+        }
+
+        .cta-final h2 { margin-bottom: 1rem; }
+        .btn-large { padding: 20px 45px; font-size: 1.2rem; }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.6);
+            z-index: 999;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+            border: 4px solid white;
+        }
+
+        .whatsapp-btn:hover { transform: scale(1.1); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .footer {
+            background: #0a0a0a;
+            color: #888;
+            text-align: center;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+            border-top: 2px solid var(--wood);
+        }
+
+        .footer a { color: var(--accent); text-decoration: none; }
+        
+        /* === CSS ATUALIZADO (ÍCONES SOCIAIS) === */
+        .social-cta {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem; /* Espaço entre o texto e o ícone */
+        }
+        
+        .social-icons {
+            margin-top: 0;
+            margin-bottom: 1.5rem; /* Espaço abaixo dos ícones */
+        }
+        .social-icons a {
+            color: var(--text-muted);
+            font-size: 2.2rem; /* Ícone maior */
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--accent); /* Destaque dourado no hover */
+        }
+        /* === FIM DA ATUALIZAÇÃO CSS === */
+
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .content-grid.reverse-grid {
+                direction: ltr;
+            }
+            .text-block, .text-block h2, .text-block .lead-text, .text-block p {
+                text-align: center;
+            }
+            .image-block {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: #0a0a0a;
+                flex-direction: column;
+                padding: 2rem 0;
+                transition: 0.3s;
+                border-bottom: 3px solid var(--wood);
+            }
+            .nav-menu.active { left: 0; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero .slogan { font-size: 1.4rem; }
+            .btn { display: block; margin: 10px auto; max-width: 250px; }
+            .section { padding: 80px 0; }
+            .lead-text { font-size: 1.1rem; }
+        }
+        /* FIM DO CSS */
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">Adega do <span>Hambúrguer</span></div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#nossa-raiz">Nossa Raiz</a></li>
+                <li><a href="#proposito">Propósito</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero">
+        
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="assets/images/fire-video.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+        
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <h1>Adega do Hambúrguer</h1>
+            <p class="slogan">fascínio por hambúrgueres e vinhos</p>
+            <div>
+                <a href="https://adega-do-hambrguer.goomer.app" class="btn btn-primary" target="_blank">Fazer Pedido</a>
+                <a href="#nossa-raiz" class="btn btn-secondary">Conheça nossa História</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="nossa-raiz" class="section">
+        <div class="container content-grid">
+            <div class="text-block">
+                <h2>A Essência do Artesanato</h2>
+                <p class="lead-text">
+                    Nascemos da inquietação. Em um mundo de velocidade, sentimos falta da pausa, do sabor real e do respeito ao ingrediente.
+                </p>
+                <p>
+                    A Adega do Hambúrguer nasceu em 2025 para ser essa pausa: um lugar onde o verdadeiro hambúrguer artesanal é preparado com calma, ingredientes selecionados e <strong style="color: var(--primary);">paixão em cada detalhe</strong>.
+                </p>
+            </div>
+            <div class="image-block">
+                <img src="assets/images/hamburguer-artesanal.jpg" alt="Hambúrguer gourmet artesanal com queijo derretido" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <section id="proposito" class="section dark-section">
+        <div class="container content-grid reverse-grid">
+            <div class="image-block">
+                <img src="assets/images/harmonizacao.jpg" alt="Harmonização de Hambúrguer e Vinho" loading="lazy">
+            </div>
+            <div class="text-block">
+                <h2>Nosso Propósito: A Harmonização Perfeita</h2>
+                <p class="lead-text" style="color: var(--accent);">
+                    Não somos apenas mais uma hamburgueria. Nós somos uma <strong style="color: var(--primary);">Adega</strong>.
+                </p>
+                <p>
+                    Acreditamos que a complexidade de um bom vinho pode elevar a experiência de um hambúrguer premium a um nível totalmente novo. Nosso propósito é criar harmonizações inesperadas e provar que o artesanal, quando feito com alma, cria momentos inesquecíveis.
+                </p>
+                <p class="small-note final-call">
+                    A Adega do Hambúrguer é o início de uma jornada de sabor. <strong style="color: var(--accent);">E você faz parte dela.</strong>
+                </p>
+                <a href="https://wa.me/5541995433974?text=Olá! Quero saber mais sobre a Adega do Hambúrguer" class="btn btn-primary" style="margin-top: 1.5rem;">Falar com a gente</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contato" class="cta-final">
+        <div class="container text-center">
+            <h2>Pronto para Fazer seu Pedido?</h2>
+            <p class="lead-text">Clique no botão abaixo para ver nosso cardápio completo e fazer seu pedido pelo Goomer.</p>
+            <a href="https://adega-do-hambrguer.goomer.app" class="btn btn-primary btn-large" target="_blank">Ver Cardápio e Fazer Pedido</a>
+        </div>
+    </section>
+
+    <a href="https://wa.me/5541995433974?text=Olá! Gostaria de saber mais sobre a Adega do Hambúrguer" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <div class="container">
+            
+            <p class="social-cta">Siga-nos no Instagram e fique por dentro das novidades!</p>
+
+            <div class="social-icons">
+                <a href="https://www.instagram.com/adegadohamburguercwb?igsh=YXdwc2pzeTJhd2t5" target="_blank" aria-label="Nosso Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+
+            <p>&copy; 2025 Adega do Hambúrguer. Todos os direitos reservados.</p>
+            <p>Feito com <span style="color: var(--primary);">♥</span> por quem acredita na verdade do sabor.</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://wa.me/5541995433974?text=Olá! Quero saber mais sobre a Adega do Hambúrguer" target="_blank" style="color: #25D366; font-weight: 700;">
+                    Fale Conosco no WhatsApp 📲
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        /* INÍCIO DO JAVASCRIPT (COM CORREÇÃO) */
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+          });
+        });
+
+        const sections = document.querySelectorAll('.section');
+        const options = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { 
+              entry.target.classList.add('visible');
+            } else {
+              entry.target.classList.remove('visible'); 
+            }
+          });
+        }, options);
+
+        sections.forEach(section => {
+          observer.observe(section);
+        });
+        /* FIM DO JAVASCRIPT */
+    </script>
+</body>
+</html>

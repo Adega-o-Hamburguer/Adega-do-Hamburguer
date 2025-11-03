@@ -1,0 +1,44 @@
+/* style.css */
+
+/* ... (TODO O CÓDIGO CSS ANTERIOR PERMANECE) ... */
+
+.logo {
+  font-family: 'Playfair Display', serif; /* Mantém sua fonte original */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent); /* Cor dourada da sua imagem */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.logo span { color: var(--primary); }
+
+/* Hero Section */
+/* ... (Seu código anterior para .hero) ... */
+
+.hero h1 {
+  font-family: 'Playfair Display', serif; /* Sua fonte */
+  font-size: 4.2rem; /* Um pouco maior para impacto */
+  margin-bottom: 0.2rem; /* Aproxima da slogan */
+  line-height: 1.1;
+  color: var(--accent); /* Cor dourada da sua imagem */
+  text-transform: uppercase; /* Para combinar com a imagem */
+  letter-spacing: 2px; /* Espaçamento entre letras para o estilo */
+}
+
+.hero .slogan { /* Classe específica para a slogan */
+  font-family: 'Playfair Display', serif; /* Sua fonte para a slogan */
+  font-size: 1.8rem; /* Tamanho da slogan */
+  margin-bottom: 2.5rem;
+  color: var(--accent); /* Cor dourada da sua imagem */
+  font-style: italic; /* Estilo itálico da sua imagem */
+  font-weight: 400; /* Mais leve que o título */
+}
+
+/* ... (Restante do seu código CSS) ... */
+
+/* Media Queries (Responsividade) */
+@media (max-width: 768px) {
+  /* ... (Seu código existente de media query) ... */
+  .hero h1 { font-size: 2.8rem; } /* Ajuste de tamanho para mobile */
+  .hero .slogan { font-size: 1.4rem; } /* Ajuste de tamanho para mobile */
+}
