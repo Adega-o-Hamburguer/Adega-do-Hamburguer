@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
     <style>
-        /* (Seu CSS completo está aqui, sem alterações) */
+        /* INÍCIO DO CSS */
         * {
             margin: 0;
             padding: 0;
@@ -55,6 +55,7 @@
             padding: 0 20px;
         }
 
+        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -79,6 +80,9 @@
             font-weight: 700;
             color: var(--accent);
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+            /* ATUALIZAÇÃO OPCIONAL DA LOGO (CAIXA ALTA) */
+            text-transform: uppercase; 
+            letter-spacing: 1px;
         }
 
         .logo span { color: var(--primary); }
@@ -131,14 +135,16 @@
             border-radius: 2px;
         }
 
+        /* Hero Section (COM VÍDEO) */
         .hero {
-            position: relative;
+            position: relative; 
             min-height: 100vh;
             display: flex;
             align-items: center;
             text-align: center;
             padding-top: 80px;
-            overflow: hidden;
+            overflow: hidden; 
+            /* Fallback (Plano B) caso o vídeo não carregue */
             background: url('assets/images/hamburguer-bg.jpg') center/cover no-repeat;
             background-attachment: fixed;
         }
@@ -147,12 +153,12 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); 
             min-width: 100%;
             min-height: 100%;
             width: auto;
             height: auto;
-            z-index: 1;
+            z-index: 1; /* Fica no fundo */
             object-fit: cover;
         }
 
@@ -162,13 +168,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85));
-            z-index: 2;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)); 
+            z-index: 2; /* Fica sobre o vídeo */
         }
         
         .hero-content {
-            position: relative;
-            z-index: 3;
+            position: relative; 
+            z-index: 3; /* Fica sobre o overlay */
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
@@ -194,6 +200,7 @@
             text-transform: capitalize;
         }
 
+        /* Botões */
         .btn {
             display: inline-block;
             padding: 14px 32px;
@@ -227,6 +234,7 @@
             color: var(--dark);
         }
 
+        /* Seções de Conteúdo */
         .section {
             padding: 120px 0;
             opacity: 0;
@@ -538,7 +546,7 @@
     </footer>
 
     <script>
-        /* INÍCIO DO JAVASCRIPT */
+        /* INÍCIO DO JAVASCRIPT (COM CORREÇÃO) */
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
 
